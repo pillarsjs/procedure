@@ -1,0 +1,17 @@
+{
+  "name": "procedure",
+  "description": "Simple JS async development, What promise?.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Bifuer",
+    "email": "bifuer@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bifuer/procedure"
+  },
+  "main": "./procedure.js",
+  "scripts": {},
+  "dependencies": {},
+  "readmeFilename": "readme.md"
+}
