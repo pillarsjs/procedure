@@ -1,17 +1,51 @@
 {
   "name": "procedure",
-  "description": "Simple JS async development, What promise?.",
-  "version": "0.1.0",
+  "description": "Simple JS async develpoment, easy error handling, chained results, declarative way.",
+  "version": "0.2.0",
   "author": {
-    "name": "Bifuer",
+    "name": "Javier Gallego Martín",
     "email": "bifuer@gmail.com"
   },
+  "contributors": [
+    {
+      "name": "Chelo Quilón Gomez",
+      "email": "cheloq@gmail.com"
+    }
+  ],
+  "homepage": "https://github.com/bifuer/procedure",
   "repository": {
     "type": "git",
     "url": "git://github.com/bifuer/procedure"
   },
-  "main": "./procedure.js",
-  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/bifuer/procedure/issues",
+    "email" : "cheloq@gmail.com"
+  },
+  "keywords": [
+    "callback hell",
+    "async",
+    "asynchronous",
+    "declarative",
+    "async errors",
+    "node",
+    "js",
+    "javascript"
+  ],
   "dependencies": {},
-  "readmeFilename": "readme.md"
+  "devDependencies": {
+    "mocha": "*",
+    "unit.js": "*"
+  },
+  "main": "./index.js",
+  "scripts":{
+    "test": "mocha test/"
+  },
+  "preferGlobal": false,
+  "files": [
+    "LICENSE",
+    "README.md",
+    "index.js"
+  ],
+  "readmeFilename": "README.md",
+  "license": "MIT"
 }
