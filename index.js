@@ -87,7 +87,7 @@ function Race(){
       this.errors.push(error);
       data = data.slice(1);
     }
-    this.results[name] = data;
+    this.results[name] = data.slice(1);
     if(this.jobs.length===Object.keys(this.results).length){
       if(this.errors.length>0){
         this.handler(this.errors);

@@ -1,7 +1,7 @@
 {
   "name": "procedure",
   "description": "Simple JS async develpoment, easy error handling, chained results, declarative way.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": {
     "name": "Javier Gallego Martín",
     "email": "bifuer@gmail.com"
