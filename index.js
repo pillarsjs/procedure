@@ -76,7 +76,7 @@ function Race(){
     } else {
       for(var i = 0,l=this.jobs.length;i<l;i++){
         var job = this.jobs[i];
-        Procedure.Launcher(this,job.name,job.func,job.args);
+        launcher(this,job.name,job.func,job.args);
       }
     }
   };
@@ -112,7 +112,7 @@ function Queue(){
     }
     if(this.jobs.length > 0){
       var job = this.jobs[0];
-      Procedure.Launcher(this,job.name,job.func,data.concat(job.args));
+      launcher(this,job.name,job.func,data.concat(job.args));
     } else {
       this.handler.apply(this,data);
     }
@@ -127,15 +127,14 @@ function Queue(){
       this.jobs.shift();
       if(this.jobs.length > 0){
         var job = this.jobs[0];
-        Procedure.Launcher(this,job.name,job.func,data.slice(1).concat(job.args));
+        launcher(this,job.name,job.func,data.slice(1).concat(job.args));
       } else {
         this.handler.apply(this,data);
       }
     }
   };
 
-
-function Launcher(context,name,func,args){
+function launcher(context,name,func,args){
   var catcher = context.done.bind(context,name);
   catcher.result = catcher.bind(context,undefined);
   try {
