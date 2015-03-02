@@ -135,29 +135,16 @@ function Queue(){
   };
 
 
-Procedure.Launcher = Launcher;
-Procedure.Launcher.method = global.setImmediate;
 function Launcher(context,name,func,args){
-  return Procedure.Launcher.method(function(){
-    var catcher = context.done.bind(context,name);
-    catcher.result = catcher.bind(context,undefined);
-    try {
-      func.apply(context,args.concat([catcher]));
-    } catch (error) {
-      error.message = "Procedure error in '"+name+"' > "+error.name+" "+error.message;
-      error.name = "ProcedureError";
-      catcher(error);
-    }
-  });
-}
-
-
-/* ---------------------------- *
-
-// Launcher MOD for browser version.
-
-Procedure.Launcher.method = function(task){
-    return setTimeout(task,Math.round(Math.random()*100));
+  var catcher = context.done.bind(context,name);
+  catcher.result = catcher.bind(context,undefined);
+  try {
+    func.apply(context,args.concat([catcher]));
+  } catch (error) {
+    error.message = "Procedure error in '"+name+"' > "+error.name+" "+error.message;
+    error.name = "ProcedureError";
+    catcher(error);
+  }
 }
 
 /* ---------------------------- *
