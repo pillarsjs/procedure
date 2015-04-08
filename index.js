@@ -7,7 +7,6 @@ function Procedure(){
   this.main = new Queue();
   this.main.main = true;
   this.main.procedure = this;
-  //console.log("- Creando procedimiento...");
 }
   Procedure.prototype.add = function(name,func){
     var procedure = this;
@@ -19,7 +18,6 @@ function Procedure(){
     } else {
         args = args.slice(2);
     }
-    //console.log("-- Añadida tarea.",args);
     procedure.jobs.push({name:name,func:func,args:args});
     return procedure;
   };
@@ -34,16 +32,13 @@ function Procedure(){
     var resolve;
     resolve = mode === 'race' ? new Race() : new Queue();
     resolve.jobs = procedure.jobs;
-    //console.log("-- Nueva resolución ("+mode+") de "+resolve.jobs.length+" tareas.");
     resolve.procedure = procedure;
     procedure.jobs = [];
     resolve.handler = function(error){
       var data = Array.prototype.slice.call(arguments);
       if(error){
-        //console.log("-- Terminado "+mode+" con error",data);
         procedure.main.handler.apply(procedure.main,data);
       } else {
-        //console.log("-- Terminado "+mode+" sin errores",data);
         procedure.main.done.apply(procedure.main,[undefined].concat(data));
       }
     };
@@ -54,7 +49,6 @@ function Procedure(){
     var procedure = this;
     procedure.main.handler = handler;
     procedure.main.jobs = procedure.main.jobs.concat(procedure.jobs);
-    //console.log("-- Iniciado procedimiento con "+procedure.main.jobs.length+" tareas.");
     procedure.main.launch();
   };
 
@@ -68,8 +62,6 @@ function Race(){
 }
   Race.prototype.launch = function(){
     var data = Array.prototype.slice.call(arguments);
-    //console.log("--- Iniciando race...",data);
-    //console.log("-- Elimina el callback sobrante del main Queue");
     data = data.slice(0,-1);
     if(this.jobs.length===0){
       this.handler(undefined,this.results);
@@ -81,7 +73,6 @@ function Race(){
     }
   };
   Race.prototype.done = function Done(name,error){
-    //console.log("--- Terminada tarea race",arguments);
     var data = Array.prototype.slice.call(arguments).slice(1);
     if(error){
       this.errors.push(error);
@@ -105,9 +96,7 @@ function Queue(){
 }
   Queue.prototype.launch = function(){
     var data = Array.prototype.slice.call(arguments);
-    //console.log("--- Iniciando queue...",data);
     if(!this.main){
-      //console.log("-- Elimina el callback sobrante del main Queue");
       data = data.slice(0,-1);
     }
     if(this.jobs.length > 0){
@@ -118,7 +107,6 @@ function Queue(){
     }
   };
   Queue.prototype.done = function Done(name,error){
-    //console.log("--- Terminada tarea queue",arguments);
     var data = Array.prototype.slice.call(arguments).slice(1);
     if(error){
       error = [error];
