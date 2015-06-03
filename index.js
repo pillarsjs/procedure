@@ -1,7 +1,13 @@
 /* jslint node: true */
 "use strict";
 
-module.exports = Procedure;
+global.modulesCache = global.modulesCache || {};
+if(global.modulesCache['procedure']){
+  module.exports = global.modulesCache['procedure'];
+  return;
+}
+
+module.exports = global.modulesCache['procedure'] = Procedure;
 function Procedure(){
   this.jobs = [];
   this.main = new Queue();
