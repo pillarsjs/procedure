@@ -12,13 +12,13 @@
       "email": "cheloq@gmail.com"
     }
   ],
-  "homepage": "https://github.com/bifuer/procedure",
+  "homepage": "https://github.com/pillarsjs/procedure",
   "repository": {
     "type": "git",
-    "url": "git://github.com/bifuer/procedure"
+    "url": "git://github.com/pillarsjs/procedure"
   },
   "bugs": {
-    "url": "https://github.com/bifuer/procedure/issues",
+    "url": "https://github.com/pillarsjs/procedure/issues",
     "email" : "cheloq@gmail.com"
   },
   "keywords": [
