@@ -3,8 +3,7 @@
   "description": "Simple JS async develpoment, easy error handling, chained results, declarative way.",
   "version": "0.3.4",
   "author": {
-    "name": "Javier Gallego Martín",
-    "email": "bifuer@gmail.com"
+    "name": "Bifuer"
   },
   "contributors": [
     {
